@@ -1,0 +1,5 @@
+name: ClansAU-Hub
+author: Trae
+main: net.clansau.hub.Hub
+depend: [ ClansAU-Core ]
+version: 1.0.0
