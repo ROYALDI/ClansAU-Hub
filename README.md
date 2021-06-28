@@ -1,5 +1,5 @@
 # ClansAU-Hub
-Note: Requires the <b>ClansAU-Core</b> to function. You can find the Core here: <a href="https://github.com/TR4E/ClansAU-Core" target="_blank">ClansAU-Core</a>
+Note: Requires the <b>ClansAU-Core</b> to function.
 
 Created using <a href="https://spigotmc.org" target="_blank">Spigot API</a> for Minecraft Servers.
 
