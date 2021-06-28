@@ -7,6 +7,7 @@ import net.clansau.hub.config.OptionsManager;
 import net.clansau.hub.server.ServerManager;
 import net.clansau.hub.server.events.ServerStartEvent;
 import net.clansau.hub.server.events.ServerStopEvent;
+import net.clansau.hub.world.WorldManager;
 import org.bukkit.Bukkit;
 
 public class Hub extends Plugin {
@@ -26,6 +27,7 @@ public class Hub extends Plugin {
         addManager(new ConfigManager(this));
         addManager(new OptionsManager(this));
         addManager(new ServerManager(this));
+        addManager(new WorldManager(this));
     }
 
     @Override
