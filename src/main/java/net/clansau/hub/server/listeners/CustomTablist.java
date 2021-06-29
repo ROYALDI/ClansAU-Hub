@@ -9,10 +9,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 
-public class TablistListener extends CoreListener<ServerManager> {
+public class CustomTablist extends CoreListener<ServerManager> {
 
-    public TablistListener(final ServerManager manager) {
-        super(manager, "Tablist Listener");
+    public CustomTablist(final ServerManager manager) {
+        super(manager, "Custom Tablist");
     }
 
     @EventHandler

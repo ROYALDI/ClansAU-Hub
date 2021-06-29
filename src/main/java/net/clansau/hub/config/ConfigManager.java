@@ -39,19 +39,23 @@ public class ConfigManager extends Manager {
         }
     }
 
-    private void handleConfig(final YamlConfiguration yml, final ConfigType type) {
-        switch (type) {
-            case MAIN_CONFIG: {
-                break;
-            }
-        }
-    }
-
     public void updateModules() {
-        final Config config = this.getConfig(ConfigType.MODULES_CONFIG);
+        final Config config = this.getConfig(ConfigManager.ConfigType.MODULES_CONFIG);
         config.loadFile();
         config.saveFile();
         int count = 0;
+        for (final String managerName : config.getConfig().getKeys(false)) {
+            final Manager manager = getInstance().getPluginManager(managerName);
+            if (manager == null) {
+                config.getConfig().set(managerName, null);
+                continue;
+            }
+            for (final String moduleName : config.getConfig().getConfigurationSection(managerName).getKeys(true)) {
+                if (manager.getModule(moduleName) == null) {
+                    config.getConfig().set(managerName + "." + moduleName, null);
+                }
+            }
+        }
         for (final Manager manager : getInstance().getPluginManagers()) {
             for (final Module<?> module : manager.getModules()) {
                 if (config.getConfig().contains(manager.getName() + "." + module.getName())) {
@@ -64,6 +68,14 @@ public class ConfigManager extends Manager {
         config.saveFile();
         if (count > 0) {
             UtilMessage.log("Config", "Added " + ChatColor.YELLOW + count + ChatColor.GRAY + " Modules to Configuration.");
+        }
+    }
+
+    private void handleConfig(final YamlConfiguration yml, final ConfigType type) {
+        switch (type) {
+            case MAIN_CONFIG: {
+                break;
+            }
         }
     }
 
