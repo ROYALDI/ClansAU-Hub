@@ -14,6 +14,7 @@ public class WorldManager extends IWorldManager {
 
     @Override
     protected void registerModules() {
+        addModule(new AdventureModeOnly(this));
         addModule(new DisableBlockBreak(this));
         addModule(new DisableBlockInteract(this));
         addModule(new DisableBlockPlace(this));
