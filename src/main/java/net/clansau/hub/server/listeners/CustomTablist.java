@@ -7,6 +7,7 @@ import net.clansau.core.utility.UtilServer;
 import net.clansau.hub.server.ServerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 
 public class CustomTablist extends CoreListener<ServerManager> {
@@ -23,5 +24,12 @@ public class CustomTablist extends CoreListener<ServerManager> {
         e.setHeader(ChatColor.GOLD.toString() + ChatColor.BOLD + "ClansAU Hub\n");
         e.setFooter(ChatColor.GOLD.toString() + ChatColor.BOLD + "\nOnline: " + ChatColor.YELLOW + Bukkit.getOnlinePlayers().size() + ChatColor.GOLD + ChatColor.BOLD + " TPS: " + ChatColor.YELLOW + UtilServer.getTPS() + ChatColor.GOLD + ChatColor.BOLD + " Ping: " + ChatColor.YELLOW + UtilPlayer.getPing(e.getPlayer()));
         e.updateTab();
+    }
+
+    @Override
+    public void shutdownModule() {
+        for (final Player player : Bukkit.getOnlinePlayers()) {
+            UtilPlayer.setPlayerTablist(player, "", "");
+        }
     }
 }
