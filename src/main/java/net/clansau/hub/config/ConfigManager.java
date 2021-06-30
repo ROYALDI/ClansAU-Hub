@@ -40,7 +40,7 @@ public class ConfigManager extends Manager {
     }
 
     public void updateModules() {
-        final Config config = this.getConfig(ConfigManager.ConfigType.MODULES_CONFIG);
+        final Config config = this.getConfig(ConfigType.MODULES_CONFIG);
         config.loadFile();
         config.saveFile();
         int count = 0;
