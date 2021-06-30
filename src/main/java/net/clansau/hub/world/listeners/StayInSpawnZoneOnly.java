@@ -25,7 +25,7 @@ public class StayInSpawnZoneOnly extends CoreListener<WorldManager> {
             if (getManager().getSpawnLocation().distance(player.getLocation()) <= 100.0D) {
                 continue;
             }
-            final Teleport teleport = new Teleport(player.getUniqueId(), getManager().getSpawnLocation(), 0L, false);
+            final Teleport teleport = new Teleport(player.getUniqueId(), getManager().getSpawnLocation(), 0L, false, true);
             getInstance().getManager(TeleportManager.class).addTeleport(teleport);
         }
     }

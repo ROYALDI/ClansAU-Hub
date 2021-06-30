@@ -18,7 +18,7 @@ public class TeleportToSpawnOnJoin extends CoreListener<WorldManager> {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerJoin(final PlayerJoinEvent e) {
         final Player player = e.getPlayer();
-        final Teleport teleport = new Teleport(player.getUniqueId(), getManager().getSpawnLocation(), 0L, false);
+        final Teleport teleport = new Teleport(player.getUniqueId(), getManager().getSpawnLocation(), 0L, false, false);
         getInstance().getManager(TeleportManager.class).addTeleport(teleport);
     }
 }
