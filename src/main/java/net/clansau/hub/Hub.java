@@ -1,6 +1,6 @@
 package net.clansau.hub;
 
-import net.clansau.core.config.IOptionsManager;
+import net.clansau.core.config.framework.IConfigManager;
 import net.clansau.core.framework.Plugin;
 import net.clansau.hub.config.ConfigManager;
 import net.clansau.hub.config.OptionsManager;
@@ -31,7 +31,7 @@ public class Hub extends Plugin {
     }
 
     @Override
-    public IOptionsManager getOptionsManager() {
-        return getManager(OptionsManager.class);
+    public final IConfigManager getConfigManager() {
+        return getManager(ConfigManager.class);
     }
 }
