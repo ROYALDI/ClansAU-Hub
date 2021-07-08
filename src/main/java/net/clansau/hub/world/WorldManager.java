@@ -22,6 +22,7 @@ public class WorldManager extends IWorldManager {
         addModule(new DisableFallDamage(this));
         addModule(new DisableMobDamage(this));
         addModule(new DisablePvP(this));
+        addModule(new GamerJoinListener(this));
         addModule(new StayInSpawnZoneOnly(this));
         addModule(new TeleportToSpawnOnJoin(this));
     }
