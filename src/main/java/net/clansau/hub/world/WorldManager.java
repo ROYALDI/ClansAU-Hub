@@ -1,6 +1,6 @@
 package net.clansau.hub.world;
 
-import net.clansau.core.world.framework.IWorldManager;
+import net.clansau.core.world.interfaces.IWorldManager;
 import net.clansau.hub.Hub;
 import net.clansau.hub.world.listeners.*;
 import org.bukkit.Bukkit;
