@@ -29,6 +29,6 @@ public class DisableBlockPlace extends CoreListener<WorldManager> {
             return;
         }
         e.setCancelled(true);
-        UtilMessage.message(player, "Hub", "You are not allowed to place blocks!");
+        UtilMessage.message(player, "Game", "You are not allowed to place blocks!");
     }
 }

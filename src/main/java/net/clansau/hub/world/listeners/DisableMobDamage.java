@@ -4,6 +4,7 @@ import net.clansau.core.framework.modules.CoreListener;
 import net.clansau.hub.world.WorldManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 public class DisableMobDamage extends CoreListener<WorldManager> {
@@ -12,7 +13,7 @@ public class DisableMobDamage extends CoreListener<WorldManager> {
         super(manager, "Disable Mob Damage");
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     public void onMobDamage(final EntityDamageByEntityEvent e) {
         if (e.getEntity() instanceof Player && e.getDamager() instanceof Player) {
             return;

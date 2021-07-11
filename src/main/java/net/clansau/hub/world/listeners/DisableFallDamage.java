@@ -4,6 +4,7 @@ import net.clansau.core.framework.modules.CoreListener;
 import net.clansau.hub.world.WorldManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.entity.EntityDamageEvent;
 
 public class DisableFallDamage extends CoreListener<WorldManager> {
@@ -12,7 +13,7 @@ public class DisableFallDamage extends CoreListener<WorldManager> {
         super(manager, "Disable Fall Damage");
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     public void onFallDamage(final EntityDamageEvent e) {
         if (!(e.getCause().equals(EntityDamageEvent.DamageCause.FALL))) {
             return;
